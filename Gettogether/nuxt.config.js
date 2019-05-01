@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'gettogether',
+    title: 'starter',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,18 +14,19 @@ module.exports = {
     ]
   },
   /*
-  ** Customize the progress bar color
+  ** Global CSS
   */
-  loading: { color: '#3B8070' },
+  css: ['~/assets/css/main.css'],
   /*
-  ** Build configuration
+  ** Add axios globally
   */
   build: {
+    vendor: ['axios'],
     /*
-    ** Run ESLint on save
+    ** Run ESLINT on save
     */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
+    extend (config) {
+      if (process.server && process.browser) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -34,6 +35,9 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  serverMiddleware: [
+    // API middleware
+    '~/api/index.js'
+  ]
 }
-
