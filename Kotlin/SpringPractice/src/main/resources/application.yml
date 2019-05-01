@@ -44,4 +44,3 @@ logging:
     org.hibernate: info
     org.hibernate.SQL: debug
     com.example.demo: debug
-    
