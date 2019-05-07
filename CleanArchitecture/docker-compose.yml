@@ -1,25 +1,10 @@
-version: '2.1'
+version: '3'
 services:
-  web:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    command: npm run dev
-    environment:
-      NODE_ENV: development
-    ports:
-      - '3000:3000'
+  app:
+    #app_goの中にあるDockerfileの読み込み
+    build: ./app_go
+    container_name: "app_go"
+    tty: true
+    #ホストのディレクトリをコンテナにマウント
     volumes:
-      - .:/app
-  mysql: 
-    image: mysql:5.6
-    container_name: mysql56
-    hostname: mysql
-    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
-    ports:
-      - "3306:3306"
-    environment:
-      - "MYSQL_ROOT_PASSWORD=root"
-      - "MYSQL_DATABASE=sample"
-
-
+      - ./app_go/app:/go/src/app
