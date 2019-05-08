@@ -18,6 +18,7 @@ RUN go get -u -v \
     golang.org/x/tools/cmd/goimports \
     golang.org/x/lint/golint \
     github.com/alecthomas/gometalinter \
+    github.com/go-sql-driver/mysql \
     honnef.co/go/tools/... \
     github.com/golangci/golangci-lint/cmd/golangci-lint \
     github.com/mgechev/revive \
