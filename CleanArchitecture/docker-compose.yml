@@ -2,5 +2,8 @@ version: '3'
 services:
   app:
     build: .
-    ports:
-      - "8080:8080"
+    container_name: "CleanArchitecture"
+    tty: true
+    #ホストのディレクトリをコンテナにマウント
+    volumes:
+      - ./Todo/CleanArchitecture/src/app:/go/src/app
