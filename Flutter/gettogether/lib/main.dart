@@ -36,11 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
           centerTitle: false,
           backgroundColor: Color.fromRGBO(157, 232, 104, 1),
         ),
-        body: Column(children: <Widget>[
-          _banner(),
-          _eventLists(),
-          _eventLists()
-        ]));
+        body: Column(
+            children: <Widget>[_banner(), _eventLists(), _eventLists()]));
   }
 
   Widget _banner() => Container(
@@ -64,27 +61,19 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Colors.green,
         child: new ListView(
           scrollDirection: Axis.horizontal,
+          children: <Widget>[_listItem(), _listItem(), _listItem(), _listItem(), _listItem()],
+        ),
+      );
+
+  Widget _listItem() => Container(
+        height: 150,
+        width: 170,
+        child: Column(
           children: <Widget>[
-            Container(
-                width: 160.0,
-                color: Colors.red,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.blue,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.green,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.yellow,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.orange,
-              ),
+            Image.asset('images/倉田.jpg', width: 170, height: 100,),
+            Column(
+              children: <Widget>[Text('10/20 9:00-12:00'), Text('東京都芝公園2-12')],
+            )
           ],
         ),
       );
