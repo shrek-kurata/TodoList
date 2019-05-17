@@ -46,16 +46,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
         appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
           title: Text(
             widget.title,
             style: TextStyle(
@@ -71,13 +63,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _banner() {
     return Container(
-      child: RaisedButton(
-          onPressed: () {},
-          textColor: Colors.white,
-          child: Text('スポーツする仲間を見つけよう'),
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.0)))),
-    );
+        height: 285,
+        alignment: Alignment.center,
+        child: Column(
+          children: <Widget>[
+            Container(height: 200),
+            RaisedButton(
+                onPressed: () {},
+                color: Color.fromRGBO(157, 232, 104, 1),
+                textColor: Colors.white,
+                child: Text('スポーツする仲間を見つけよう'),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)))),
+          ],
+        ));
   }
 
   Widget _eventListsContainer() {
@@ -85,36 +84,17 @@ class _MyHomePageState extends State<MyHomePage> {
       padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[_eventListItem(), _eventListItem()],
+        children: <Widget>[
+          Container(
+            width: 160.0,
+            color: Colors.red,
+          ),
+          Container(
+            width: 160.0,
+            color: Colors.blue,
+          )
+        ],
       ),
-    );
-  }
-
-  Widget _eventListItem() {
-    return ListView(
-      scrollDirection: Axis.horizontal,
-      children: <Widget>[
-        Container(
-          width: 160.0,
-          color: Colors.red,
-        ),
-        Container(
-          width: 160.0,
-          color: Colors.blue,
-        ),
-        Container(
-          width: 160.0,
-          color: Colors.green,
-        ),
-        Container(
-          width: 160.0,
-          color: Colors.yellow,
-        ),
-        Container(
-          width: 160.0,
-          color: Colors.orange,
-        ),
-      ],
     );
   }
 }
