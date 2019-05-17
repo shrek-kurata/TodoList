@@ -44,7 +44,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -54,40 +53,47 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(
-          widget.title,
-          style: TextStyle(fontFamily: 'Avenir', fontSize: 20),
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text(
+            widget.title,
+            style: TextStyle(
+                fontFamily: 'Avenir', fontSize: 20, color: Colors.white),
+          ),
+          centerTitle: false,
+          backgroundColor: Color.fromRGBO(157, 232, 104, 1),
         ),
-        centerTitle: false,
-        backgroundColor: Color.fromRGBO(157, 232, 104, 1),
-      ),
-      body: Column(
-children: <Widget>[],
-      )
+        body: Column(
+          children: <Widget>[_banner(), _eventListsContainer()],
+        ));
+  }
+
+  Widget _banner() {
+    return Container(
+      child: RaisedButton(
+          onPressed: () {},
+          textColor: Colors.white,
+          child: Text('スポーツする仲間を見つけよう'),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0)))),
     );
   }
 
-  Widget eventListsContainer() {
+  Widget _eventListsContainer() {
     return Padding(
       padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          eventList(),
-          eventList()
-        ],
+        children: <Widget>[_eventListItem(), _eventListItem()],
       ),
     );
   }
 
-  Widget eventList() {
+  Widget _eventListItem() {
     return ListView(
       scrollDirection: Axis.horizontal,
       children: <Widget>[
-        // あとでAPIで取ってくる
         Container(
           width: 160.0,
           color: Colors.red,
