@@ -36,45 +36,56 @@ class _MyHomePageState extends State<MyHomePage> {
           centerTitle: false,
           backgroundColor: Color.fromRGBO(157, 232, 104, 1),
         ),
-        body: Column(
-          children: <Widget>[_banner(), _eventListsContainer()],
-        ));
+        body: Column(children: <Widget>[
+          _banner(),
+          _eventLists(),
+          _eventLists()
+        ]));
   }
 
-  Widget _banner() {
-    return Container(
-        height: 285,
-        alignment: Alignment.center,
-        child: Column(
-          children: <Widget>[
-            Container(height: 200),
-            RaisedButton(
-                onPressed: () {},
-                color: Color.fromRGBO(157, 232, 104, 1),
-                textColor: Colors.white,
-                child: Text('スポーツする仲間を見つけよう'),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)))),
-          ],
-        ));
-  }
-
-  Widget _eventListsContainer() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
+  Widget _banner() => Container(
+      height: 285,
+      alignment: Alignment.center,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Container(
-            width: 160.0,
-            color: Colors.red,
-          ),
-          Container(
-            width: 160.0,
-            color: Colors.blue,
-          )
+          Container(height: 200),
+          RaisedButton(
+              onPressed: () {},
+              color: Color.fromRGBO(157, 232, 104, 1),
+              textColor: Colors.white,
+              child: Text('スポーツする仲間を見つけよう'),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)))),
         ],
-      ),
-    );
-  }
+      ));
+
+  Widget _eventLists() => Container(
+        height: 200,
+        color: Colors.green,
+        child: new ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            Container(
+                width: 160.0,
+                color: Colors.red,
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.blue,
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.green,
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.yellow,
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.orange,
+              ),
+          ],
+        ),
+      );
 }
