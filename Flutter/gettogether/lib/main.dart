@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:gettogether/presentation/event_form/main.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,6 +13,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Gettogether'),
+      routes: <String, WidgetBuilder> {
+        '/event_form': (BuildContext context) => new EventFormPage()
+      },
     );
   }
 }

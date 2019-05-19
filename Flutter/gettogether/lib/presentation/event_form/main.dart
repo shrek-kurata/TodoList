@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class EventForm extends StatelessWidget {
+class EventFormPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -10,14 +10,14 @@ class EventForm extends StatelessWidget {
   }
 }
 
-class EventFormPage extends StatefulWidget {
-  EventFormPage() : super();
+class _EventFormPage extends StatefulWidget {
+  _EventFormPage() : super();
 
   @override
   _EventFormPageState createState() => _EventFormPageState();
 }
 
-class _EventFormPageState extends State<EventFormPage> {
+class _EventFormPageState extends State<_EventFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
