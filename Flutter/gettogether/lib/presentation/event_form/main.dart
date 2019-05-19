@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class EventFormPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: EventFormPage(),
-    );
-  }
-}
-
-class _EventFormPage extends StatefulWidget {
-  _EventFormPage() : super();
+class EventFormPage extends StatefulWidget {
+  EventFormPage() : super();
 
   @override
   _EventFormPageState createState() => _EventFormPageState();
 }
 
-class _EventFormPageState extends State<_EventFormPage> {
+class _EventFormPageState extends State<EventFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

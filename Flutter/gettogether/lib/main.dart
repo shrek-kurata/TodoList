@@ -12,10 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Gettogether'),
-      routes: <String, WidgetBuilder>{
-        '/event_form': (BuildContext context) => new EventFormPage()
-      },
+      home: MyHomePage(title: 'Gettogether')
     );
   }
 }
@@ -60,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           RaisedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/b');
+                Navigator.push(context, MaterialPageRoute(builder: (context) => EventFormPage()));
               },
               padding: EdgeInsets.symmetric(horizontal: 33.0),
               color: Color.fromRGBO(157, 232, 104, 1),
