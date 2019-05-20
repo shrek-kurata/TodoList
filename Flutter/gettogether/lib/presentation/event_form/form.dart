@@ -68,7 +68,7 @@ class EventForm {
         children: <Widget>[
           Container(
               child: Text(title,
-              textAlign: TextAlign.center,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 10,
                       fontFamily: 'font-family: Hiragino Kaku Gothic ProN',
@@ -95,8 +95,12 @@ class EventForm {
         textColor: Colors.white,
         child: Center(
           child: Text(
-            'Gettogether',
-            style: TextStyle(fontFamily: 'Avenir', fontSize: 15),
+            'Gettogether!',
+            style: TextStyle(
+                fontFamily: 'Avenir',
+                fontSize: 15,
+                letterSpacing: 0.5,
+                fontWeight: FontWeight.w700),
           ),
         ),
         shape: RoundedRectangleBorder(
