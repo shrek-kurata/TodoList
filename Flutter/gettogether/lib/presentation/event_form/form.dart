@@ -31,15 +31,19 @@ class EventForm {
       );
 
   Widget _smallForm(String title) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Container(
-              alignment: Alignment.centerLeft,
               child: Text(
-                title,
-                style: TextStyle(fontSize: 10),
-              )),
+            title,
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 10,
+                fontFamily: 'font-family: Hiragino Kaku Gothic ProN',
+                letterSpacing: 0.25),
+          )),
           _smallLabel()
         ],
       );
@@ -58,13 +62,17 @@ class EventForm {
   // BigForm
 
   Widget _bigForm(String title) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Container(
-              alignment: Alignment.centerLeft,
               child: Text(title,
-                  textAlign: TextAlign.start, style: TextStyle(fontSize: 10))),
+              textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 10,
+                      fontFamily: 'font-family: Hiragino Kaku Gothic ProN',
+                      letterSpacing: 0.25))),
           _bigLabel()
         ],
       );
