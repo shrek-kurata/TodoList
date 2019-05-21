@@ -1,32 +1,29 @@
-import 'package:flutter/rendering.dart';
-import 'package:gettogether/presentation/shared/icons.dart' as Icon;
+import 'package:flutter/material.dart';
 
-enum ShareProviderType { line, twitter, facebook }
+enum Type { line, twitter, facebook }
 
-class Provider {
-  String convertToString(ShareProviderType type) {
-    switch (type) {
-      case ShareProviderType.line:
-        return 'Line';
-      case ShareProviderType.facebook:
-        return 'Facebook';
-      case ShareProviderType.twitter:
-        return 'Twitter';
-      default:
-        return '倉田';
-    }
+String convertToString(Type type) {
+  switch (type) {
+    case Type.line:
+      return 'Line';
+    case Type.facebook:
+      return 'Facebook';
+    case Type.twitter:
+      return 'Twitter';
+    default:
+      return '倉田';
   }
+}
 
-  AssetImage convertToImage(ShareProviderType type) {
-    switch (type) {
-      case ShareProviderType.line:
-        return Icon.line();
-      case ShareProviderType.facebook:
-        return Icon.facebook();
-      case ShareProviderType.twitter:
-        return Icon.twitter();
-      default:
-        return Icon.kurata();
-    }
+Widget convertToImage(Type type) {
+  switch (type) {
+    case Type.line:
+      return Image.asset('images/logo/twitter.jpg');
+    case Type.facebook:
+      return Image.asset('images/logo/twitter.jpg');
+    case Type.twitter:
+      return Image.asset('images/logo/twitter.jpg');
+    default:
+      return Image.asset('images/logo/kurata.jpg');
   }
 }
