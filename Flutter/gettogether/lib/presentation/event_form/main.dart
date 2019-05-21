@@ -12,26 +12,23 @@ class EventFormPage extends StatefulWidget {
 
 class _EventFormPageState extends State<EventFormPage> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Stack(
+  Widget build(BuildContext context) => Scaffold(
+          body: Stack(
+        children: <Widget>[_backGround, Center(child: EventForm().view())],
+        fit: StackFit.expand,
+      ));
+
+  static var _backGround = Container(
+    child: Column(
       children: <Widget>[
-        Container(
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                  child: Container(color: Color.fromRGBO(157, 232, 104, 1)),
-                  flex: 1),
-              Expanded(
-                child: Container(color: Colors.white),
-                flex: 2,
-              )
-            ],
-          ),
-        ),
-        Center(child: EventForm().view())
+        Expanded(child: Container(color: _bgButtomColor), flex: 1),
+        Expanded(
+          child: Container(color: Colors.white),
+          flex: 2,
+        )
       ],
-      fit: StackFit.expand,
-    ));
-  }
+    ),
+  );
+
+  static var _bgButtomColor = Color.fromRGBO(157, 232, 104, 1);
 }
