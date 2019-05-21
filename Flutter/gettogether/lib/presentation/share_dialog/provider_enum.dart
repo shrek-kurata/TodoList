@@ -4,13 +4,13 @@ class Provider {
   String providerToIconUrl(ShareProviderType type) {
     switch (type) {
       case ShareProviderType.line:
-        return 'assets/images';
+        return 'images/logo/line.jpg';
       case ShareProviderType.facebook:
-        return 'assets/images';
+        return 'images/logo/facebook.jpg';
       case ShareProviderType.twitter:
-        return 'assets/images';
+        return 'images/logo/twitter.jpg';
       default:
-        return 'assets/images';
+        return 'images/倉田.jpg';
     }
   }
 }
