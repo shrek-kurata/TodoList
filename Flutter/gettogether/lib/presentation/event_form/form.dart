@@ -106,8 +106,4 @@ class EventForm {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
       );
-
-  _showDialog(BuildContext context) {
-    showDialog();
-  }
 }

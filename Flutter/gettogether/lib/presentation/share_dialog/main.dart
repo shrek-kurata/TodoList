@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gettogether/presentation/share_dialog/provider_service.dart';
+import 'package:gettogether/presentation/shared/icons.dart' as Icon;
 
 
 class Share {
@@ -11,9 +13,14 @@ class Share {
             ));
   }
 
-  Widget _optionButton() => SimpleDialogOption(
+  Widget _optionButton(BuildContext context, ShareProviderType type) => SimpleDialogOption(
         onPressed: () {},
-        child: Text(''),
+        child: RaisedButton(
+          child: Container(
+            child: Row(children: <Widget>[
+              
+            ],),
+          ),),
       );
 
 }
