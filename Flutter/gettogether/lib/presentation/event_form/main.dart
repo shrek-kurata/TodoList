@@ -14,7 +14,7 @@ class _EventFormPageState extends State<EventFormPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
           body: Stack(
-        children: <Widget>[_backGround, Center(child: EventForm(context).view())],
+        children: <Widget>[_backGround, Center(child: EventForm())],
         fit: StackFit.expand,
       ));
 

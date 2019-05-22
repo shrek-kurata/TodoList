@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gettogether/presentation/share_dialog/main.dart';
 
-class Button {
-  BuildContext context;
-  Button(this.context);
-  Widget show() => RaisedButton(
+class FormButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => RaisedButton(
         onPressed: () {
-          Share().loadDialog(this.context);
+          Share().loadDialog(context);
         },
         padding: _edgeInsets,
         color: _color,

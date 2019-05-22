@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class BigForm {
+class BigForm extends StatefulWidget {
+  BigForm({Key key, this.title}) : super(key: key);
   final String title;
-  BigForm(this.title);
 
-  Widget show() => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[_text(this.title), _bigLabel],
-      );
+  @override
+  State<StatefulWidget> createState() {
+    return _BigFormState();
+  }
+}
 
-  Container _text(String title) => Container(
-      child: Text(title, textAlign: TextAlign.center, style: _textStyle));
+class _BigFormState extends State<BigForm> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[_text(widget.title), _bigLabel],
+    );
+  }
 
+  _text(String title) => Text(title, style: _textStyle);
   static var _textStyle = TextStyle(
       fontSize: 10,
       fontFamily: 'font-family: Hiragino Kaku Gothic ProN',

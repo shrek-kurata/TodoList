@@ -5,24 +5,25 @@ import 'package:gettogether/presentation/event_form/big_form.dart';
 import 'package:gettogether/presentation/event_form/button.dart';
 import 'package:gettogether/presentation/event_form/small_form.dart';
 
-class EventForm {
-  BuildContext context;
-  EventForm(this.context);
-  Widget view() => Container(
-      width: 330,
-      height: 430,
-      padding: _edgeInsets,
-      decoration: _circleRadius,
-      child: _itemContainer());
+class EventForm extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 330,
+        height: 430,
+        padding: _edgeInsets,
+        decoration: _circleRadius,
+        child: _itemContainer());
+  }
 
   Widget _itemContainer() => Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          BigForm('どのスポーツをしたい？').show(),
-          SmallForm(['いつ遊ぶ？', 'どのくらい遊ぼうか？']).show(),
-          SmallForm(['何人で遊びたい？', '予算はどのくらい？']).show(),
-          BigForm('どこで遊ぶ？').show(),
-          Button(this.context).show()
+          BigForm(title: 'どのスポーツをしたい？'),
+          SmallForm(titles: ['いつ遊ぶ？', 'どのくらい遊ぼうか？']),
+          SmallForm(titles: ['何人で遊びたい？', '予算はどのくらい？']),
+          BigForm(title: 'どこで遊ぶ？'),
+          FormButton()
         ],
       );
 

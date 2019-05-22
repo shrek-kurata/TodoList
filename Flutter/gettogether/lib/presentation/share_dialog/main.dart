@@ -10,9 +10,9 @@ class Share {
         builder: (BuildContext context) => SimpleDialog(
               title: Text('選択してください'),
               children: <Widget>[
-                _optionButton(context, ShareProvider.Type.line),
-                _optionButton(context, ShareProvider.Type.twitter),
-                _optionButton(context, ShareProvider.Type.facebook),
+                _optionButton(ShareProvider.Type.line),
+                _optionButton(ShareProvider.Type.twitter),
+                _optionButton(ShareProvider.Type.facebook),
               ],
             )).then((type) => {ShareProvider.execute(type)}).whenComplete(() {
       Navigator.pushAndRemoveUntil(context,
@@ -20,8 +20,7 @@ class Share {
     });
   }
 
-  Widget _optionButton(BuildContext context, ShareProvider.Type type) =>
-      SimpleDialogOption(
+  Widget _optionButton(ShareProvider.Type type) => SimpleDialogOption(
         child: RaisedButton(
           onPressed: () {
             return type;
