@@ -4,7 +4,7 @@ import 'package:gettogether/presentation/share_dialog/button.dart';
 import 'package:gettogether/presentation/share_dialog/provider_service.dart'
     as ShareProvider;
 
-class Dialog extends StatelessWidget {
+class ShareDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SimpleDialog(
         title: _title,
@@ -15,8 +15,8 @@ class Dialog extends StatelessWidget {
         ],
       );
 
-  Text _title = Text(
-    ' 次は仲間を集めよう！',
+  static var _title = Text(
+    '次は仲間を集めよう！',
     style: _titleTextStyle,
     textAlign: TextAlign.center,
   );
@@ -25,7 +25,6 @@ class Dialog extends StatelessWidget {
       fontFamily: 'Hiragino Kaku Gothic ProN',
       fontSize: 17,
       color: _titleTextColor);
-
   static var _titleTextColor = Color.fromRGBO(30, 30, 36, 1);
 
   SimpleDialogOption _optionButton(ShareProvider.Type type) =>

@@ -3,14 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gettogether/presentation/event_form/form.dart';
 
-class EventFormPage extends StatefulWidget {
-  EventFormPage() : super();
-
-  @override
-  _EventFormPageState createState() => _EventFormPageState();
-}
-
-class _EventFormPageState extends State<EventFormPage> {
+class EventFormPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
           body: Stack(
