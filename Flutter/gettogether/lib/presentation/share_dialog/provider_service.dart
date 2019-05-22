@@ -20,24 +20,24 @@ Widget convertToImage(Type type) {
     case Type.line:
       return Image.asset('images/logo/twitter.jpg');
     case Type.facebook:
-      return Image.asset('images/logo/twitter.jpg');
+      return Image.asset('images/logo/facebook.jpg');
     case Type.twitter:
-      return Image.asset('images/logo/twitter.jpg');
+      return Image.asset('images/logo/line.jpg');
     default:
-      return Image.asset('images/logo/kurata.jpg');
+      return Image.asset('images/倉田.jpg');
   }
 }
 
 void execute(Type type) {
-    switch (type) {
-      case Type.line:
-        return LineService().post();
-      case Type.facebook:
-        return FacebookService().post();
-      case Type.twitter:
-        return TwitterService().post();
-    }
+  switch (type) {
+    case Type.line:
+      return LineService().post();
+    case Type.facebook:
+      return FacebookService().post();
+    case Type.twitter:
+      return TwitterService().post();
   }
+}
 
 abstract class ThirdPartyService {
   void post() => {};

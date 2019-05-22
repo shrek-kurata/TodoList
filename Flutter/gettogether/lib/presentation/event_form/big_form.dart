@@ -37,10 +37,10 @@ class _BigFormState extends State<BigForm> {
   static var _boxDecoration =
       BoxDecoration(border: _border, borderRadius: _borderRadius);
 
-  static var _border = Border.all(
-      color: Color.fromRGBO(230, 234, 234, 1),
-      width: 2,
-      style: BorderStyle.solid);
+  static var _border =
+      Border.all(color: _borderColor, width: 2, style: BorderStyle.solid);
+
+  static var _borderColor = Color.fromRGBO(230, 234, 234, 1);
 
   static var _borderRadius = BorderRadius.circular(6.0);
 }
