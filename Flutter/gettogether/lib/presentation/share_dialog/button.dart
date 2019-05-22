@@ -3,8 +3,8 @@ import 'package:gettogether/presentation/share_dialog/provider_service.dart'
     as ShareProvider;
 
 class Button extends StatefulWidget {
-  Button({Key key, this.providerName}) : super(key: key);
-  final ShareProvider.Type providerName;
+  Button({Key key, this.providerType}) : super(key: key);
+  final ShareProvider.Type providerType;
   @override
   State<StatefulWidget> createState() => _ButtonState();
 }
@@ -21,9 +21,9 @@ class _ButtonState extends State<Button> {
   Widget _buttonContent() => Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          ShareProvider.convertToImage(widget.providerName),
+          ShareProvider.convertToImage(widget.providerType),
           Container(width: 10),
-          Text(ShareProvider.convertToString(widget.providerName) + 'でシェア！',
+          Text(ShareProvider.convertToString(widget.providerType) + 'でシェア！',
               style: _buttonTextStyle, textAlign: TextAlign.center)
         ],
       );
