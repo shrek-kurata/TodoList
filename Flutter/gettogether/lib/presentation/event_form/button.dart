@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:gettogether/presentation/share_dialog/main.dart';
 
 class Button {
+  BuildContext context;
+  Button(this.context);
   Widget show() => RaisedButton(
-        onPressed: () {},
+        onPressed: () {
+          Share().loadDialog(this.context);
+        },
         padding: _edgeInsets,
         color: _color,
         textColor: Colors.white,

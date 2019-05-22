@@ -6,6 +6,8 @@ import 'package:gettogether/presentation/event_form/button.dart';
 import 'package:gettogether/presentation/event_form/small_form.dart';
 
 class EventForm {
+  BuildContext context;
+  EventForm(this.context);
   Widget view() => Container(
       width: 330,
       height: 430,
@@ -20,7 +22,7 @@ class EventForm {
           SmallForm(['いつ遊ぶ？', 'どのくらい遊ぼうか？']).show(),
           SmallForm(['何人で遊びたい？', '予算はどのくらい？']).show(),
           BigForm('どこで遊ぶ？').show(),
-          Button().show()
+          Button(this.context).show()
         ],
       );
 
