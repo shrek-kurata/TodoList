@@ -1,13 +1,14 @@
 import 'package:flutter/widgets.dart';
+import 'package:gettogether/domain/apply_event.dart';
 import 'package:gettogether/domain/entity.dart';
 import 'package:gettogether/domain/event.dart';
 
 class User extends Entity {
   final UserId id;
   final String name;
-  final List<Event> applyingEvents;
+  final List<ApplyEvent> applyEvents;
 
-  User({@required this.id, @required this.name, this.applyingEvents})
+  User({@required this.id, @required this.name, this.applyEvents})
       : assert(id != null),
         assert(name != null),
         super();

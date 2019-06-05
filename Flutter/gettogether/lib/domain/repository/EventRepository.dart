@@ -8,4 +8,8 @@ abstract class EventRepository {
   /// 主体Entityに書くものであるが、Repositoryのなかでどう切り離すのかわからない
   Future<Event> apply(User user) {}
   Future<Event> cansel(User user) {}
+
+  Future<Event> shareLine(Event event) {}
+  Future<Event> shareFacebook(Event event) {}
+  Future<Event> shareTwitter(Event event) {}
 }
