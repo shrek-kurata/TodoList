@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_list/bloc/bloc.dart';
-import 'package:infinite_list/bloc/post_bloc.dart';
-
+import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:infinite_list/post.dart';
 
-void main() => runApp(App());
+void main() {
+  BlocSupervisor.delegate = SimpleBlocDelegate();
+  runApp(App());
+}
 
 class App extends StatelessWidget {
   // This widget is the root of your application.
@@ -83,5 +87,38 @@ class _HomePageState extends State<HomePage> {
   void dispose() {
     _postBloc.dispose();
     super.dispose();
+  }
+}
+
+class BottomLoader extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      child: Center(
+        child: SizedBox(
+          width: 33.0,
+          height: 33.0,
+          child: CircularProgressIndicator(strokeWidth: 15.0),
+        ),
+      ),
+    );
+  }
+}
+
+class PostWidget extends StatelessWidget {
+  final Post post;
+
+  /// 初期化の引数の時に、postを必須にする
+  const PostWidget({Key key, @required this.post}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Text('${post.id}', style: TextStyle(fontSize: 15.0)),
+      title: Text(post.title),
+      isThreeLine: true,
+      subtitle: Text(post.body),
+      dense: true,
+    );
   }
 }
