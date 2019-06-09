@@ -1,0 +1,9 @@
+[submodule "Swift/inject.dart"]
+	path = Swift/inject.dart
+	url = https://github.com/google/inject.dart
+[submodule "Flutter/gettogether/inject.dart"]
+	path = Flutter/gettogether/inject.dart
+	url = https://github.com/google/inject.dart
+[submodule "Flutter/gettogether/vendor/inject.dart"]
+	path = Flutter/gettogether/vendor/inject.dart
+	url = https://github.com/google/inject.dart
