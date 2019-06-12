@@ -1,18 +1,18 @@
 import 'package:gettogether/domain/entity.dart';
 
-class Event extends Entity {
-  final EventId id;
+class Play extends Entity {
+  final PlayId id;
   final SportName sportName;
 
-  Event({this.id, this.sportName})
+  Play({this.id, this.sportName})
       : assert(id != null),
         assert(sportName != null),
         super();
 }
 
-class EventId {
+class PlayId {
   final String value;
-  const EventId(this.value) : assert(value != null);
+  const PlayId(this.value) : assert(value != null);
 }
 
 enum SportName { Soccer, Baseball, BasketBall }
