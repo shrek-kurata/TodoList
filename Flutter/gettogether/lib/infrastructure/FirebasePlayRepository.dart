@@ -10,7 +10,7 @@ class FirebasePlayRpository extends PlayRepository {
         .snapshots()
         .map((QuerySnapshot querySnapShot) {
       querySnapShot.documents.map<Play>((doc) {
-        return Play(id: doc.data['id'], sportName: doc.data['sportNane']);
+        return fromDocumentSnapShot(doc);
       }).toList();
     });
   }
@@ -21,8 +21,8 @@ class FirebasePlayRpository extends PlayRepository {
         .snapshots()
         .map((QuerySnapshot querySnapShot) {
       querySnapShot.documents.map<Play>((doc) {
-        return Play(id: doc.data['id'], sportName: doc.data['sportName']);
-      });
+        return fromDocumentSnapShot(doc);
+      }).toList();
     });
   }
 
@@ -31,7 +31,7 @@ class FirebasePlayRpository extends PlayRepository {
         .collection('plays')
         .add({'sport_name': play.sportName}).then((DocumentReference docRef) {
       docRef.snapshots().map<Play>((doc) {
-        return Play(id: doc.data['id'], sportName: doc.data['sportName']);
+        return fromDocumentSnapShot(doc);
       });
     });
   }
@@ -43,7 +43,7 @@ class FirebasePlayRpository extends PlayRepository {
         .collection('users')
         .add({'id': userId}).then((DocumentReference docRef) {
       docRef.snapshots().map<Play>((doc) {
-        return Play(sportName: doc.data['sportName'], id: doc.data['id']);
+        return fromDocumentSnapShot(doc);
       });
     });
   }
@@ -55,14 +55,29 @@ class FirebasePlayRpository extends PlayRepository {
         .collection('users')
         .add({'id': userId}).then((DocumentReference docRef) {
       docRef.snapshots().map<Play>((doc) {
-        return Play(sportName: doc.data['sportName'], id: doc.data['id']);
+        return fromDocumentSnapShot(doc);
       });
     });
   }
 
+  /// Converter
+  List<Play> fromQuerySnapShot(QuerySnapshot querySnapShot) {
+    return querySnapShot.documents
+        .map<Play>((doc) => fromDocumentSnapShot(doc))
+        .toList();
+  }
+
+  Play fromDocumentSnapShot(DocumentSnapshot docSnapShot) {
+    var playId = PlayId(docSnapShot.documentID);
+    return Play(id: playId, sportName: docSnapShot.data['sportName']);
+  }
+
+  /// [Share]まだやってない
+
   Future<Play> shareFacebook(Play play) {
     return Future(() => Play(id: PlayId('da'), sportName: SportName.Baseball));
   }
+
   Future<Play> shareTwitter(Play play) {
     return Future(() => Play(id: PlayId('da'), sportName: SportName.Baseball));
   }
