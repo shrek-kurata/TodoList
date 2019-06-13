@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gettogether/presentation/share_dialog/main.dart';
 
 class FormButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => RaisedButton(
-        onPressed: () {
-          Share().loadDialog(context);
-        },
+        onPressed: () {},
         padding: _edgeInsets,
         color: _color,
         textColor: Colors.white,

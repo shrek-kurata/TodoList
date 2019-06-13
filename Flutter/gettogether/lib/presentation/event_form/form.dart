@@ -26,6 +26,7 @@ class EventForm extends StatelessWidget {
       fontSize: 15,
       fontWeight: FontWeight.w600,
       color: Colors.white);
+      
   Widget _form() => Container(
       width: 330,
       height: 430,

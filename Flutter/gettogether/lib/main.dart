@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:gettogether/application/blocs/user_bloc.dart';
 import 'package:gettogether/presentation/event_form/main.dart';
 
 void main() => runApp(MyApp());
@@ -56,9 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
         verticalDirection: VerticalDirection.up,
         children: <Widget>[
           RaisedButton(
-              onPressed: () {
-                _handleGoogleSignIn();
-              },
+              onPressed: () {},
               padding: EdgeInsets.symmetric(horizontal: 33.0),
               color: Color.fromRGBO(157, 232, 104, 1),
               textColor: Colors.white,
@@ -69,13 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   borderRadius: BorderRadius.all(Radius.circular(20.0)))),
         ],
       ));
-
-  void _handleGoogleSignIn() {
-    UserBloc().signUp().then((_) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => EventFormPage()));
-    });
-  }
 
   Widget _eventLists(String title) => Container(
       padding: EdgeInsets.symmetric(horizontal: 16.0),
