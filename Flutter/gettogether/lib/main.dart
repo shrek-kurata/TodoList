@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'auth.dart';
+import 'package:gettogether/blocs/auth_bloc.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[LoginButton(), UserProfile()],
+            children: <Widget>[LoginButton()],
           ),
         ),
       ),
@@ -24,48 +24,24 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class UserProfile extends StatefulWidget {
-  @override
-  UserProfileState createState() => UserProfileState();
-}
-
-class UserProfileState extends State<UserProfile> {
-  Map<String, dynamic> _profile;
-  bool _loading = false;
-
-  @override
-  initState() {
-    super.initState();
-    authService.profile.listen((state) => setState(() => _profile = state));
-
-    authService.loading.listen((state) => setState(() => _loading = state));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Container(padding: EdgeInsets.all(20), child: Text(_profile.toString())),
-      Container(padding:EdgeInsets.all(20), child: Text('Loading: ${_loading.toString()}')),
-    ]);
-  }
-}
-
 class LoginButton extends StatelessWidget {
+  final _bloc = AuthBloc();
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: authService.user,
+        stream: _bloc.authenticatedStream,
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
+          bool isAuthenticated = snapshot.data as bool;
+          if (isAuthenticated) {
             return MaterialButton(
-              onPressed: () => authService.signOut(),
+              onPressed: () => _bloc.authEventSink.add(SignOutEvent()),
               color: Colors.red,
               textColor: Colors.white,
               child: Text('Signout'),
             );
           } else {
             return MaterialButton(
-              onPressed: () => authService.googleSignIn(),
+              onPressed: () => _bloc.authEventSink.add(SignInEvent()),
               color: Colors.white,
               textColor: Colors.black,
               child: Text('Login with Google'),
