@@ -24,7 +24,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class LoginButton extends StatelessWidget {
+class LoginButton extends StatefulWidget {
+  @override
+  State<LoginButton> createState() {
+    return LoginButtonState();
+  }
+}
+
+class LoginButtonState extends State<LoginButton> {
   final _bloc = AuthBloc();
   @override
   Widget build(BuildContext context) {
@@ -48,5 +55,11 @@ class LoginButton extends StatelessWidget {
             );
           }
         });
+  }
+
+  @override
+  dispose() {
+    super.dispose();
+    _bloc.dispose();
   }
 }

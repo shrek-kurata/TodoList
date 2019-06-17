@@ -22,6 +22,7 @@ class AuthBloc {
   Sink<AuthEvent> get authEventSink => _eventController.sink;
 
   /// クラスの中に閉じ込めてても良い
+  /// UserBloc作って分離できる
   StreamSink<User> get _userSink => _userController.sink;
   Stream<User> get userStream => _userController.stream;
 
