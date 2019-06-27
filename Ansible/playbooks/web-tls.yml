@@ -1,0 +1,14 @@
+- name: Configure webserver with nginx and tls
+  hosts: webservers
+  become: True
+  vars: 
+    key_file: /etc/nginx/ssl/nginx.ley
+    cert_file: /etc/nginx/ssl/nginx.crt
+    conf_file: /etc/nginx/sites-available/default
+    server_name: localhost
+  tasks: 
+    - name: Install nginx
+      apt: name=nginx update_chache=yes cache_valid_time=3600
+    
+    - name: create directories for ssl certificates
+      file: name=nginx update_cache
